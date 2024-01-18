@@ -696,7 +696,7 @@ class SignedData(pdf.PdfFileWriter):
             zeros = contents.hex().encode("utf-8")
 
         params = {"mode": mode}
-        if not timestampurl:
+        if udct.get("signingdate"):
             params["use_signingdate"] = True
 
         self.makepdf(prev, udct, algomd, zeros, cert, **params)
